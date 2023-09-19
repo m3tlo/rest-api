@@ -92,11 +92,12 @@ export default {
         password: this.password,
       }
       try {
-        // await this.$store.dispatch('login', formData)
+        await this.$store.dispatch('login', formData)
         console.log(formData)
         this.$router.push('/')
       } catch (error) {
         console.log('eror')
+        this.$router.push('/')
       }
       
     },
