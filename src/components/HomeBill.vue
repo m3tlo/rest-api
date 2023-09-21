@@ -19,6 +19,9 @@ export default {
     bill: 65000
   }),
   computed: {
+    // bill() {
+    //     return this.$store.getters.info.bill
+    //   },
     base() {
       let cur = this.bill / (this.rates['RUB'] / this.rates['EUR']);
       console.log(cur)

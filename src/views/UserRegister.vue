@@ -71,7 +71,7 @@
     </div>
     <div class="card-action">
       <div>
-        <button class="btn waves-effect waves-light auth-submit" type="submit">
+        <button class="btn  waves-light auth-submit" type="submit">
           Зарегистрироваться
           <i class="fa-solid fa-share right"></i>
         </button>
@@ -86,6 +86,8 @@
 </template>
 <script>
 import {email, required, minLength} from 'vuelidate/lib/validators'
+import messages from '@/utils/messages'
+
 
 export default {
   name: 'UserRegister', 
@@ -114,13 +116,18 @@ export default {
       }
       try {
         await this.$store.dispatch('register', formData)
-      console.log(formData)
-      this.$router.push('/')
+        console.log(formData)
+        this.$router.push('/')
       } catch (error) {
         console.log(error)
       }
       
     },
+  },
+  mounted() {
+    if(messages[this.$route.query.message]) {
+      this.$message(messages[this.$route.query.message])
+    }
   },
 }
 </script>
