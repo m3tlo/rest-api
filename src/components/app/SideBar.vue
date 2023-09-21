@@ -9,7 +9,7 @@
       active-class="active"
       
     >
-      <a href="#" class="waves-effect waves-orange pointer">{{link.title}}</a>
+      <a href="#" class=" pointer">{{link.title}}</a>
     </router-link>
   </ul>
 </template>

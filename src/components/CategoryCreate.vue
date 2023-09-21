@@ -38,7 +38,7 @@
             </span>
         </div>
 
-        <button class="btn waves-effect waves-light" type="submit">
+        <button class="btn  waves-light" type="submit">
           Создать
           <i class="fa-solid fa-share right"></i>
         </button>
@@ -60,6 +60,7 @@ export default {
         title: {required},
         limit: {minValue: minValue(100)},
     },
+  
     methods: {
         async  submitHandler() {
             if(this.$v.$invalid) {
@@ -67,6 +68,7 @@ export default {
                 return
             }
             try {
+              
                 const category = await this.$store.dispatch('createCategory', {
                 title: this.title,
                 limit: this.limit,
@@ -76,6 +78,7 @@ export default {
             this.limit = 100
             this.$v.$reset()
             this.$message('Категория была создана')
+            this.$emit('created', category)
                 
             } catch (error) {
                 console.log(error)

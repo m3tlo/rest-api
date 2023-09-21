@@ -16,7 +16,7 @@
             data-target="dropdown"
             ref="dropdown"
           >
-          <!-- {{name}}  --> Даниил
+          <!-- {{name}}  -->
             <i class="fa-solid fa-caret-down fa-lg right"></i>
           </a>
 
@@ -59,11 +59,11 @@ export default {
             this.$router.push('/login?message=logout')
         }
     },
-    // computed: {
-    //   name() {
-    //     return this.$store.getters.info.name
-    //   }
-    // },
+    computed: {
+      // name() {
+      //   return this.$store.getters.info.name
+      // }
+    },
     mounted() {
      this.interval = setInterval(() => {
             this.date = new Date
