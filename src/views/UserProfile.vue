@@ -12,7 +12,7 @@
           <span class="helper-text invalid">name</span>
         </div>
 
-        <button class="btn waves-effect waves-light" type="submit">
+        <button class="btn  waves-light" type="submit">
           Обновить
           <i class="fa-solid fa-share right"></i>
         </button>
