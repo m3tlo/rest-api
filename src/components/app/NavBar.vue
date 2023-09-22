@@ -16,7 +16,7 @@
             data-target="dropdown"
             ref="dropdown"
           >
-          <!-- {{name}}  -->
+          {{name}} 
             <i class="fa-solid fa-caret-down fa-lg right"></i>
           </a>
 
@@ -60,9 +60,9 @@ export default {
         }
     },
     computed: {
-      // name() {
-      //   return this.$store.getters.info.name
-      // }
+      name() {
+        return this.$store.getters.info.name
+      }
     },
     mounted() {
      this.interval = setInterval(() => {

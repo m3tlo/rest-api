@@ -10,8 +10,8 @@
           <select ref="select" v-model="current">
             <option 
             v-for="c in categories" 
-            :key="c.title" 
-            :value="c.title">
+            :key="c.id" 
+            :value="c.id">
               {{ c.title }}
             </option>
           </select>
@@ -93,8 +93,8 @@ export default {
     },
   },
   created() {
-    const {  title, limit } = this.categories[0];
-    // this.current = id;
+    const { id, title, limit } = this.categories[0];
+    this.current = id;
     this.title = title;
     this.limit = limit;
   },

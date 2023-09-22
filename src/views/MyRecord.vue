@@ -107,23 +107,7 @@ export default {
     description: { required },
   },
   async mounted() {
-    this.categories = [
-      {
-        id: 1,
-        title: 'car',
-        limit: 10000,
-      },
-      {
-        id: 2,
-        title: 'car',
-        limit: 10000,
-      },
-      {
-        id: 3,
-        title: 'car',
-        limit: 10000,
-      },
-    ];
+    this.categories = this.info.categories
     // this.categories = await this.$store.dispatch('fetchCategories')
     this.loading = false;
     if (this.categories.length) {

@@ -12,20 +12,21 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   props: ['rates'],
   data: () => ({
     currencies: ['RUB', 'USD', 'EUR'],
-    bill: 65000
+    // bill: 65000
   }),
   computed: {
-    // bill() {
-    //     return this.$store.getters.info.bill
-    //   },
+    ...mapGetters(['info']),
     base() {
-      let cur = this.bill / (this.rates['RUB'] / this.rates['EUR']);
-      console.log(cur)
-      return cur;
+      console.log(this.info.bill)
+
+      return this.$store.getters.info.bill / (this.rates['RUB'] / this.rates['EUR']);
+     
     },
   },
   methods: {

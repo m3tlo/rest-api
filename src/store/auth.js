@@ -10,7 +10,7 @@ export default {
         throw error;
       }
     },
-    async register({ dispatch, commit }, { email, password, name }) {
+    async register({dispatch, commit}, {email, password, name}) {
       try {
         await firebase.auth().createUserWithEmailAndPassword(email, password);
         const uid = await dispatch('getUid');
@@ -19,7 +19,7 @@ export default {
           name,
         });
       } catch (error) {
-        console.log(error);
+        commit('setError', error)
         throw error;
       }
     },
