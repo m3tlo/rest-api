@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+  <title>REST API</title>
+  <style>
+      [v-cloak] {
+          display: none;
+      }
+  </style>
+</head>
+<body>
+<div class="container pt-3" id="app" v-cloak>
+  <h1>REST API</h1>
+
+  <form @submit.prevent="createContact" class="row g-3">
+    <div class="col-auto">
+      <label class="visually-hidden" for="name">name</label>
+      <input
+        class="form-control"
+        id="name" placeholder="Name"
+        type="text"
+        v-model="form.name"
+        value="Name"
+      >
+    </div>
+    <div class="col-auto">
+      <label class="visually-hidden" for="value">value</label>
+      <input
+        class="form-control"
+        id="value"
+        placeholder="Value"
+        type="text"
+        v-model="form.value"
+      >
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary mb-3" type="submit" :disabled="!canCreate">Создать</button>
+    </div>
+  </form>
+  <div v-if="loading">
+    <loader />
+  </div>
+
+  <p class="text-center" v-else-if="!contacts.length">Empty</p>
+
+  <div v-else>
+    <div
+      class="card mb-3"
+      v-for="contact in contacts"
+    >
+
+      <div class="card-body">
+        <h5
+          class="card-title"
+          :style="{color: contact.marked === true ? 'red' : 'black'}"
+        >
+          {{contact.name}}</h5>
+        <p class="card-text">{{contact.value}}</p>
+        <button @click="markContact(contact.id)" class="btn btn-primary" :disabled="contact.marked">Отметить</button>
+        <button @click="deleteContact(contact.id)" class="btn btn-danger">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="frontend.js" type="module"></script>
+</body>
+</html>
